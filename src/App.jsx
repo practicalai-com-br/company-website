@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -13,17 +13,28 @@ function App() {
 }
 
 function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header className="site-header">
       <div className="container">
-        <div className="logo">PracticalAI</div>
-        <nav className="nav-links">
+        <div className="logo">Practical.ai</div>
+
+        <button
+          className="hamburger"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+
+        <nav className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
           <a href="#features">Features</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
+          <button className="header-cta">Get Started</button>
         </nav>
-        <button className="header-cta">Get Started</button>
       </div>
     </header>
   );
