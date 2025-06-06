@@ -45,7 +45,7 @@ function HeroSection() {
   return (
     <header className="hero">
       <div className="hero-content">
-        <h1>The AI era is upon us
+        <h1>The AI era is upon us.
             Empower your future with intelligent software</h1>
         <p>
           We’re a Brazilian tech company focused on developing quality and high-end AI products.
