@@ -18,7 +18,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="container">
-        <div className="logo">Practical.ai</div>
+        <div className="logo">Practical AI</div>
 
         <button
           className="hamburger"
@@ -29,11 +29,9 @@ function Header() {
         </button>
 
         <nav className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
-          <a href="#features">Features</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <button className="header-cta">Get Started</button>
+          {/* <button className="header-cta">View Projects</button> */}
         </nav>
       </div>
     </header>
@@ -45,15 +43,20 @@ function HeroSection() {
   return (
     <header className="hero">
       <div className="hero-content">
-        <h1>The AI era is upon us.
-            Empower your future with intelligent software</h1>
+        <h1>Building Practical AI,<br></br>
+            One project at a Time</h1>
         <p>
-          We’re a Brazilian tech company focused on developing quality and high-end AI products.
+          We incubate and prototype AI projects - from small tools to full startups. Explore
+          our work and join us in creating useful, open and impactiful AI solutions.
         </p>
-
-        <button className="cta-button" onClick={() => alert('Get Started clicked!')}>
-          Get Started
-        </button>
+        <div className="cta-button-container">
+          <button className="cta-button" onClick={() => alert('Get Started clicked!')}>
+            View Projects
+          </button>
+          <button className="cta-button-wireframe" onClick={() => alert('Get Started clicked!')}>
+            Contact Us
+          </button>
+        </div>
       </div>
       {/* <div className="hero-image">
         <img
@@ -70,26 +73,45 @@ function HeroSection() {
 
 // Features section with reusable FeatureCard component
 function FeaturesSection() {
-  const features = [
+  const features_1 = [
     {
-      title: 'AI-Powered Builder',
-      description: 'Leverage AI to accelerate your software creation process.',
+      title: "SLM-Memory",
+      description: "Local LLM with FAISS + Redis context memory, GPU/CPU-optimized.",
+      tech: ["FastApi", "PyTorch", "FAISS", "Redis"],
+      status: "Prototype",
     },
     {
-      title: 'Transparent Pricing',
-      description: 'Know exactly what you’re paying for with no surprises.',
+      title: "AI Waiter",
+      description: "Restaurant recommendation and menu understanding assistant",
+      tech: ["LLM", "LangChain"],
+      status: "MVP",
+    }
+  ];
+  const features_2 = [
+    {
+      title: "WhatsApp Attendant Bot",
+      description: "Conversational bot for scheduling services and answering questions on WhatsApp",
+      tech: ["Python", "Rasa"],
+      status: null,
     },
     {
-      title: 'Expert Support',
-      description: 'Get help from software experts anytime you need it.',
-    },
+      title: "Conversational",
+      description: "Bot for scheduling services and answering questions on WhatsApp",
+      tech: ["Python", "Rasa"],
+      status: "Prototype",
+    }
   ];
 
   return (
     <section className="features">
-      <h2>Why choose us?</h2>
+      <h2 className="project-title">Projects</h2>
       <div className="feature-cards">
-        {features.map((feature) => (
+        {features_1.map((feature) => (
+          <FeatureCard key={feature.title} {...feature} />
+        ))}
+      </div>
+      <div className="feature-cards">
+        {features_2.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
       </div>
@@ -98,11 +120,26 @@ function FeaturesSection() {
 }
 
 // Individual feature card component
-function FeatureCard({ title, description }) {
+function FeatureCard({ title, description, status, tech }) {
   return (
     <div className="feature-card" tabIndex={0} aria-label={title}>
-      <h3>{title}</h3>
+      <div className="feature-card-header">
+        <h3>{title}</h3>
+        {status ? <h4>{status}</h4> : null}
+      </div>
       <p>{description}</p>
+      <div className="tech-list-container">
+        <p>Tech:</p>
+      {tech.map((tech, i) => (
+        <a
+          key={i}
+          href="#"
+          className="text-blue-600 hover:underline mr-1"
+        >
+          {tech}
+        </a>
+      ))}
+      </div>
     </div>
   );
 }
