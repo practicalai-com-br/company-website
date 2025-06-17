@@ -75,32 +75,38 @@ function HeroSection() {
 function FeaturesSection() {
   const features_1 = [
     {
-      title: "SLM-Memory",
-      description: "Local LLM with FAISS + Redis context memory, GPU/CPU-optimized.",
-      tech: ["FastApi", "PyTorch", "FAISS", "Redis"],
-      status: "Prototype",
-    },
-    {
       title: "AI Waiter",
       description: "Restaurant recommendation and menu understanding assistant",
       tech: ["LLM", "LangChain"],
       status: "MVP",
-    }
-  ];
-  const features_2 = [
-    {
-      title: "WhatsApp Attendant Bot",
-      description: "Conversational bot for scheduling services and answering questions on WhatsApp",
-      tech: ["Python", "Rasa"],
-      status: null,
     },
     {
-      title: "Conversational",
-      description: "Bot for scheduling services and answering questions on WhatsApp",
+      title: "WhatsApp Bot",
+      description: "Conversational bot for scheduling services and answering questions on WhatsApp",
       tech: ["Python", "Rasa"],
       status: "Prototype",
-    }
+    },
   ];
+  // const features_2 = [
+    // {
+    //   title: "SLM-Memory",
+    //   description: "Local LLM with FAISS + Redis context memory, GPU/CPU-optimized.",
+    //   tech: ["FastApi", "PyTorch", "FAISS", "Redis"],
+    //   status: "Prototype",
+    // },
+    // {
+    //   title: "WhatsApp Attendant Bot",
+    //   description: "Conversational bot for scheduling services and answering questions on WhatsApp",
+    //   tech: ["Python", "Rasa"],
+    //   status: null,
+    // },
+  //   {
+  //     title: "Conversational",
+  //     description: "Bot for scheduling services and answering questions on WhatsApp",
+  //     tech: ["Python", "Rasa"],
+  //     status: "Prototype",
+  //   }
+  // ];
 
   return (
     <section className="features">
@@ -110,11 +116,11 @@ function FeaturesSection() {
           <FeatureCard key={feature.title} {...feature} />
         ))}
       </div>
-      <div className="feature-cards">
+      {/* <div className="feature-cards">
         {features_2.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }
