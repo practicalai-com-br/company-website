@@ -83,7 +83,7 @@ function FeaturesSection() {
     {
       title: "WhatsApp Bot",
       description: "Conversational bot for scheduling services and answering questions on WhatsApp",
-      tech: ["Python", "Rasa"],
+      tech: ["Python", "MCP"],
       status: "Prototype",
     },
   ];
